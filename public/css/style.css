@@ -1,0 +1,21 @@
+body {
+    font-family: 'lato', sans-serif;
+}
+table, th, td {
+    border: 1px solid black;
+}
+td {
+    background-color: #04AA6D;
+    color: white;
+}
+body{
+    background-image: url("d857f82d70f5cbd2b47f2a80f19f0614.png") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
