@@ -6,7 +6,7 @@ table, th, td {
 }
 td {
     background-color: #04AA6D;
-    color: white;
+    color: black;
 }
 body{
     background-image: url("d857f82d70f5cbd2b47f2a80f19f0614.png") ;
@@ -15,7 +15,30 @@ body{
     background-position: center;
     background-size: cover;
 }
+.topText {
+    padding-top: 10vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 
+.tablewrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 
+}
 
+.form{
+    display: flex;
+    flex-direction: column;
 
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}

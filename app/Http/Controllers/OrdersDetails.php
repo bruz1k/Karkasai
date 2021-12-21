@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Orders_Detail;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,20 @@ class OrdersDetails extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function orderDetails($id)
+    {
+        $order = Order::find($id);
+        $orderDetails = $order->OrderDetails()->get();
+        $order["details"] = $orderDetails;
+//        return response($order, 200);
+        return view('OrdersDetails', compact('order'));
+    }
+
+    public function display_create_win($id)
+    {
+        return view('CreateOrderDetail');
     }
 
     /**

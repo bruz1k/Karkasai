@@ -15,29 +15,20 @@
 </head>
 <div class="container">
     <div class="topText">
-        <h1>Order details</h1>
-        <button type="button" class="btn btn-primary">
-            <a href="/orders/{{$order->id}}/new" class="button">Add new order detail</a></button>
+        <h1>New order detail</h1>
     </div>
     <body>
-        <div class="tablewrapper">
-            <table>
-                <th>Id</th>
-                <Th>Quantity</Th>
-                <th>Orders_id</th>
-                <th>Actions</th>
-                @foreach($order["details"] as $orderdetail)
-                    <tr>
-                        <td>{{$orderdetail -> id}};</td>
-                        <td> {{$orderdetail -> quantity}};</td>
-                        <td>{{$orderdetail -> orders_id}};</td>
-                        <td>
-EDIT
-                        </td>
-                    </tr>
-             @endforeach
-            </table>
+    <div class="tablewrapper">
+        {{Form::open(array('url'=>'/api/neworderdetail'))}}
+        <div class="form">
+        {{Form::label('order_id', 'Order id')}}
+        {{Form::text('order_id')}}
+        {{Form::label('product_id', 'Order id')}}
+        {{Form::text('product_id')}}
+            {{Form::label('quantity', 'Quantity')}}
+            {{Form::text('quantity')}}
         </div>
+        {{Form::close()}}
+    </div>
     </body>
 </div>
-</html>

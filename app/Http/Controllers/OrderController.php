@@ -18,8 +18,7 @@ class OrderController extends Controller
         foreach ($orders as $order) {
             $ods = $order->OrderDetails()->get();
             if (count($ods) != 0) {
-                foreach ($ods as $od)
-                {
+                foreach ($ods as $od) {
                     $product = $od->product()->get()[0];
                     $od['product'] = $product;
                 }
@@ -29,6 +28,8 @@ class OrderController extends Controller
 //          return response($orders, 200);
         return view('orders', compact('orders'));
     }
+
+
 
 
     /**

@@ -21,29 +21,35 @@
     </style>
 </head>
 <body class="antialiased">
-<div id="header">
+<div id="header" class="wrapper">
     <h3 id="slogan">Sporto prekių parduotuvė</h3>
     <h1>Orders</h1>
-<table>
-    <th>Id</th>
-    <th>Created_at</th>
-    <th>Updated_at</th>
-    <th>Title</th>
-    <th>Price</th>
-    <th>Status</th>
-    <tr>
-       @foreach($orders as $order)
-           @foreach($order -> details as $detail)
-        <td>{{$order -> id}};</td>
-          <td>{{$order -> created_at}};</td>
-            <td>{{$order -> updated_at}};</td>
-           <td>{{$detail->product->title}}</td>
-           <td>{{$detail->product->price}}</td>
-           <td>{{$detail->product->status}}</td>
-    </tr>
-        @endforeach
-    @endforeach
-</table>
+    <div class="tablewrapper">
+        <table>
+            <th>Id</th>
+            <th>Created_at</th>
+            <th>Updated_at</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+            <tr>
+               @foreach($orders as $order)
+                   @foreach($order -> details as $detail)
+                <td>{{$order -> id}}</td>
+                  <td>{{$order -> created_at}};</td>
+                    <td>{{$order -> updated_at}};</td>
+                   <td>{{$detail->product->title}}</td>
+                   <td>{{$detail->product->price}}</td>
+                   <td>{{$detail->product->status}}</td>
+                        <td>
+                            <a href={{"/order/".$order->id."/details"}}>View Details</a>
+                        </td>
+            </tr>
+                @endforeach
+            @endforeach
+        </table>
+    </div>
 </div>
 </body>
 </html>
