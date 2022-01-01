@@ -11,22 +11,17 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        foreach($users as $user)
-        {
-            $use = $user->get();
-        }
-
         return view('users',compact('users'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+
      */
     public function create()
     {
-
+        return view('users');
     }
 
     /**
@@ -37,43 +32,50 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User($request->all());
-            if($user->save()) return response($user,201);
-            return response('',409);
+//        return view('')
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        //return view('users',compact('users'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        //return view('users.edit',compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+
+
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'address'=>'required'
+
+
+        ]);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->save();
+
+        return redirect()->route('users.index');
+
     }
 
     /**

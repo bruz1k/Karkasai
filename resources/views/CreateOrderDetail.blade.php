@@ -27,6 +27,7 @@
         {{Form::text('product_id')}}
             {{Form::label('quantity', 'Quantity')}}
             {{Form::text('quantity')}}
+        {{Form::submit('Save')}}
         </div>
         {{Form::close()}}
     </div>
