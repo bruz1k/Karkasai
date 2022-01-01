@@ -37,9 +37,14 @@ class OrdersDetails extends Controller
      */
     public function store(Request $request)
     {
+        $fields = $request->validate([
+            'orders_id'=>'required|numeric',
+            'products_id'=>'required|numeric',
+            'quantity'=>'required|numeric'
+        ]);
         $orderdetails = new Orders_Detail($request->all());
-            if($orderdetails->save()) return response($orderdetails,201);
-            return response('',409);
+            if($orderdetails->save()) return redirect('/orders');
+            else return response('',409);
     }
 
     /**

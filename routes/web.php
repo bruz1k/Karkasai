@@ -25,3 +25,4 @@ Route::get('/api/orderdetails',[\App\Http\Controllers\OrdersDetails::class,"inde
 Route::get('/api/orders/delete',[\App\Http\Controllers\OrderController::class,"destroy"]);
 Route::get('/order/{id}/details', [\App\Http\Controllers\OrdersDetails::class, "orderDetails"]);
 Route::get('/orders/{id}/new', [\App\Http\Controllers\OrdersDetails::class, "display_create_win"]);
+Route::post('/api/neworderdetail', [\App\Http\Controllers\OrdersDetails::class, "store"]);

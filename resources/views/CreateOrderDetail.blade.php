@@ -21,10 +21,10 @@
     <div class="tablewrapper">
         {{Form::open(array('url'=>'/api/neworderdetail'))}}
         <div class="form">
-        {{Form::label('order_id', 'Order id')}}
-        {{Form::text('order_id')}}
-        {{Form::label('product_id', 'Order id')}}
-        {{Form::text('product_id')}}
+        {{Form::label('orders_id', 'Order id')}}
+        {{Form::text('orders_id')}}
+        {{Form::label('products_id', 'Product id')}}
+        {{Form::text('products_id')}}
             {{Form::label('quantity', 'Quantity')}}
             {{Form::text('quantity')}}
         {{Form::submit('Save')}}
